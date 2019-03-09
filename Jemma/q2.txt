@@ -1,0 +1,42 @@
+def climbingLeaderboard(scores, alice):
+    res = []
+    scores_length = len(scores)
+    repeat = 0
+    for i in range(len(scores)):
+        if scores[i] == scores[i-1]:
+            repeat += 1
+            
+    for a in alice:
+        placing = 1
+        for i in range(len(scores)):
+            if i == 0:
+                if a >= scores[i]:
+                    res += [placing]
+                    break
+                elif i == (len(scores) - 1):
+                    res += [len(scores) - repeat + 1]
+                    break
+                else:
+                    placing += 1
+                    
+            elif i > 0:
+                if scores[i] == scores[i - 1]:
+##                    print(i)
+                    continue
+                elif i == (len(scores) - 1):
+                    if a < scores[i]:
+                        res += [len(scores) - repeat + 1]
+                    else:
+                        res +=[placing]
+                        
+##                    print(res)
+                    break
+                else:
+                    if a >= scores[i]:
+                        res += [placing]
+                        print(res)
+                        break
+                    else:
+                        placing += 1
+
+    return res
