@@ -108,5 +108,10 @@ public class Solution {
         list.insertNode(2);
         list.insertNode(3);
         System.out.println(hasCycle(list.head));
+        list = new SinglyLinkedList();
+        list.insertNode(2);
+        list.insertNode(2);
+        System.out.println(hasCycle(list.head));
+
     }
 }
